@@ -1,0 +1,96 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.*"  %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>列表格转行表格</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="js/plugins/layui/css/layui.css" />
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+  <style>
+      #tableId  th{
+          display: block;
+      }
+      #tableId thead{
+          float: left;
+      }
+      #tableId  tbody td,#tableId  tbody{
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      #tableId  tbody{
+          font-size: 0;
+      }
+      #tableId  tbody tr{
+          display: inline-block;
+          width: 14.285714%;
+      }
+  </style>
+</head>
+<body>
+   
+   
+   <div style="padding: 15px;">
+           <table class="layui-table" id="tableId">
+                   <thead>
+                       <tr>
+                           <th>header1</th>
+                           <th>header2</th>
+                           <th>header3</th>
+                           <th>header4</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td>1ersf</td>
+                           <td>2</td>
+                           <td>3</td>
+                           <td>4</td>
+                       </tr>
+                       <tr>
+                           <td>8</td>
+                           <td>7</td>
+                           <td>6</td>
+                           <td>5</td>
+                       </tr>
+                       <tr>
+                           <td>8</td>
+                           <td>7</td>
+                           <td>6</td>
+                           <td>5</td>
+                       </tr>
+                       <tr>
+                           <td>8</td>
+                           <td>7</td>
+                           <td>6</td>
+                           <td>5</td>
+                       </tr>
+                       <tr>
+                           <td>8</td>
+                           <td>7</td>
+                           <td>6</td>
+                           <td>5</td>
+                       </tr>
+                       <tr>
+                           <td>8fdsfsfsfsdfs发生的范德萨</td>
+                           <td>7</td>
+                           <td>6</td>
+                           <td>5</td>
+                       </tr>
+                       <tr>
+                           <td>8</td>
+                           <td>7</td>
+                           <td>6</td>
+                           <td>5</td>
+                       </tr>
+                   </tbody>
+           </table>
+   </div>
+</body>
+</html>
