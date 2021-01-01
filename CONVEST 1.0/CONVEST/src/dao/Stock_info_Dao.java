@@ -31,7 +31,7 @@ public class Stock_info_Dao {
 		
 		public List<Stock_info> selectAll(String str1) throws SQLException
 		{
-			String sql = "select location,Industry,Chairman,LegalRepresentative,Manager,ShareholdingEquity,FlowEquity,Controller,ProductType,CompanyInfo from basic_info where BasicInfoId = " + str1;
+			String sql = "select location,Industry,Chairman,LegalRepresentative,Manager,ShareholdingEquity,FlowEquity,Controller,ProductType,CompanyInfo from basic_info where stockname like " + "'%"+str1+"%'";
 			System.out.println(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			List<Stock_info> Note = new ArrayList<>();

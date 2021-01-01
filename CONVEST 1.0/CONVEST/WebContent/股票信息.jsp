@@ -120,7 +120,7 @@
               <form role="search" class="navbar-form">
                 <div class="input-group">
                   <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                    <button type="submit" class="btn btn-template-main" ><i class="fa fa-search"></i></button></span>
                 </div>
               </form>
             </div>
@@ -149,7 +149,7 @@
       
                   <form role="search" >
                     <div class="input-group" >
-                      <input type="text" placeholder="输入股票代码或企业名称" class="form-control" id="stock_id"><span class="input-group-btn">
+                      <input type="text" placeholder="输入股票代码或企业名称" class="form-control" id="stock_id"><span class="input-group-btn" id="template">
                         <button type="button" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
                     </div>
                   </form>
@@ -189,29 +189,11 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="stock_basic_info">
-       <style>
-     table {
-    position: relative;
-    width: 100%;
-    display: block;
-}
-  
-thead {
-    float: left;
-}
-  
-tbody tr {
-    display: inline-block;
-}
-  
-th, td {
-    display: block;
-}
-  </style>
+      
          <table class="table table-hover table-bordered" id="stock_info">
-                                   <thead>
+                     <thead>
                                      <tr>
-                                       <th>所属地域</th>
+                                       <th style="width:100px">所属地域</th>
                                        <th>所属行业</th>
                                        <th>董事长</th>
                                        <th>法人代表</th>
@@ -220,9 +202,9 @@ th, td {
                                        <th>流通股本</th>
                                        <th>实际控制人</th>
                                        <th>产品类型</th>
-                                      
+                                       <th>公司信息</th>
                                      </tr>
-                                   </thead>
+                                   </thead>              
 
 	  <tbody id="stock_info-body">		
 	 </tbody>
@@ -233,6 +215,12 @@ th, td {
 <td> {{value.Industry}}</td>
 <td> {{value.Chairman}}</td>
 <td> {{value.LegalRepresentative}}</td>
+<td> {{value.Manager}}</td>
+<td> {{value.ShareholdingEquity}}</td>
+<td> {{value.FlowEquity}}</td>
+<td> {{value.Controller}}</td>
+<td> {{value.ProductType}}</td>
+<td> {{value.CompanyInfo}}</td>
 </tr>
 {{/each}}	 
 	 </script>
@@ -298,36 +286,7 @@ th, td {
         </div>
       </footer>
     </div>
-     <script >
- $('body').on('click', '.btn-template-main', function () { 
-	    
-	
-	 //   addrShow.value =provice[current.prov].name + '-' + provice[current.prov]["city"][current.city].name + '-' + provice[current.prov]["city"][current.city].districtAndCounty[current.country];
-	    jQuery.noConflict();
-	    jQuery('#stock_info').dataTable().fnDestroy();
-	    jQuery.ajax({
-	  
-	        url: "../Querystock_info",
-	        type: "post",
-	        data:{
-	        	stock_id:$("#stock_id").val(),
-	        	
-	        },
-	        async: false,
-	        success: function (data) {
-	            console.log(data);
-	            jQuery("#stock_info-body").empty();
-	            jQuery("#stock_info-body").append(template("stock_info-script", { data: data }));
-	            
-	        }, error: function (data) {
-	        }
-	    });
-	   
-   var stock_id=document.getElementById("stock_id");
- });
    
- 
- </script>
     <!-- Javascript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -341,5 +300,56 @@ th, td {
     <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/template.js"></script>
+    <script>
+ $('body').on('click', '#template', function () { 
+	    
+	   
+	 //   addrShow.value =provice[current.prov].name + '-' + provice[current.prov]["city"][current.city].name + '-' + provice[current.prov]["city"][current.city].districtAndCounty[current.country];
+	    jQuery.noConflict();
+	    jQuery('#stock_info').dataTable().fnDestroy();
+	    jQuery.ajax({
+	  
+	        url: "Querystock_info",
+	        type: "post",
+	        cache:false,
+	        data:{
+	        	stock_id:jQuery("#stock_id").val(),
+	        	
+	        },
+	        async: false,
+	        success: function (data) {
+	            console.log(data);
+	            jQuery("#stock_info-body").empty();
+	            jQuery("#stock_info-body").append(template("stock_info-script", { data: data }));
+	            
+	        }, error: function (data) {
+	        }
+	    });
+	   
+ });
+	jQuery('#stock_info').dataTable({
+	     "bLengthChange": false, //开关，是否显示每页显示多少条数据的下拉框
+	     'iDisplayLength': 2, //每页初始显示5条记录
+	     'bFilter': false,  //是否使用内置的过滤功能（是否去掉搜索框）
+	     "bInfo": false, //开关，是否显示表格的一些信息(当前显示XX-XX条数据，共XX条)
+	     "bPaginate": false, //开关，是否显示分页器
+	     "bSort": false, //是否可排序 
+
+	     "oLanguage": {  //语言转换
+	       "sInfo": "显示第 _START_ 至 _END_ 项结果，共_TOTAL_ 项",
+	       "sZeroRecords": "暂无数据呜呜呜",
+	       "sLengthMenu": "每页显示 _MENU_ 项结果",
+	       "oPaginate": {
+	         "sFirst": "首页",
+	         "sPrevious": "前一页",
+	         "sNext": "后一页",
+	         "sLast": "尾页"
+	       }
+	     }
+	   });
+ 
+ </script>
   </body>
 </html>

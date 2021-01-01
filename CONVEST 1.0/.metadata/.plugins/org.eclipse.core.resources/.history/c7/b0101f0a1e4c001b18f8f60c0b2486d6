@@ -1,0 +1,5 @@
+package dao;
+
+public class Stock_event_Dao {
+
+}

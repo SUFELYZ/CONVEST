@@ -1,0 +1,7 @@
+package bean;
+
+public class Stock_event {
+	private String eventtime;
+	private String eventtype;
+	private String ;
+}

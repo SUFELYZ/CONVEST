@@ -147,7 +147,7 @@
       
                   <form role="search" >
                     <div class="input-group" >
-                      <input type="text" placeholder="输入股票代码或企业名称" class="form-control"><span class="input-group-btn">
+                      <input type="text" placeholder="输入股票代码或企业名称" class="form-control"><span class="input-group-btn" id="template">
                         <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
                     </div>
                   </form>
@@ -187,7 +187,29 @@
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-8">
-                          <img src="img/中国平安重大事项.PNG" alt="" class="img-fluid">
+                           <div class="stock_event_info">
+      
+         <table class="table table-hover table-bordered" id="stock_event">
+                     <thead>
+                                     <tr>
+                                       <th>时间</th>
+                                       <th>类型</th>
+                                       <th>内容</th>
+                                     </tr>
+                                   </thead>              
+
+	  <tbody id="stock_event-body">		
+	 </tbody>
+	 <script type="text/html" id="stock_event-script">
+{{each data value i}}
+<tr class="table-data-line">
+<td> {{value.location}}</td>
+<td> {{value.Industry}}</td>
+<td> {{value.Chairman}}</td>
+</tr>
+{{/each}}	 
+	 </script>
+	 </table>
                         </div>
                       </div>
                     </div>
@@ -260,5 +282,37 @@
     <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/template.js"></script>
   </body>
+  <script>
+  $('body').on('click', '#template', function () { 
+	    
+	   
+	
+	    jQuery.noConflict();
+	    jQuery('#stock_event').dataTable().fnDestroy();
+	    jQuery.ajax({
+	  
+	        url: "Querystock_event",
+	        type: "post",
+	        cache:false,
+	        data:{
+	        	stock_event:jQuery("#stock_event").val(),
+	        	
+	        },
+	        async: false,
+	        success: function (data) {
+	            console.log(data);
+	            jQuery("#stock_event-body").empty();
+	            jQuery("#stock_event-body").append(template("stock_event-script", { data: data }));
+	            
+	        }, error: function (data) {
+	        }
+	    });
+	   
+ });
+   
+ 
+ </script>
 </html>
