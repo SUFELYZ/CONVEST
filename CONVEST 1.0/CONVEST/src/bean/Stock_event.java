@@ -16,7 +16,7 @@ public class Stock_event {
 	public String get_eventtype() {
 		return eventtype;
 	}
-	public String eventcontent() {
+	public String get_eventcontent() {
 		return eventcontent;
 	}
 		

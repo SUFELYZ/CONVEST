@@ -187,56 +187,32 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="firstname">名</label>
-                        <input id="firstname" type="text" class="form-control">
+                        <label for="name">用户名</label>
+                        <input id="name" type="text" class="form-control">
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="lastname">姓</label>
-                        <input id="lastname" type="text" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="company">公司</label>
                         <input id="company" type="text" class="form-control">
                       </div>
                     </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="street">街道</label>
-                        <input id="street" type="text" class="form-control">
+                        <label for="code">邮编</label>
+                        <input id="code" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="address">地址</label>
+                        <input id="address" type="text" class="form-control">
                       </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                      <div class="form-group">
-                        <label for="city">公司</label>
-                        <input id="city" type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                      <div class="form-group">
-                        <label for="zip">邮编</label>
-                        <input id="zip" type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                      <div class="form-group">
-                        <label for="state">省市</label>
-                        <select id="state" class="form-control"></select>
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                      <div class="form-group">
-                        <label for="country">国家</label>
-                        <select id="country" class="form-control"></select>
-                      </div>
-                    </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="phone">电话</label>

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +16,6 @@ import javax.servlet.http.*;
 import com.alibaba.fastjson.JSONArray;
 
 import dao.Stock_event_Dao;
-import dao.Stock_info_Dao;
 
 @WebServlet (name = "Querystock_event", urlPatterns = {"/Querystock_event"})
 public class Stock_event_Servlet extends HttpServlet {
@@ -41,6 +40,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
    		//HttpSession session = request.getSession();
    		//Integer id = (Integer) session.getAttribute("id");
    		String event = request.getParameter("stock_event");
+   		
    		
    		System.out.println("print:"+event);
 			List list = dao.selectAll(event);

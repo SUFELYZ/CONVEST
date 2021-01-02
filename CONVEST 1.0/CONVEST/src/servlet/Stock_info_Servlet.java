@@ -41,7 +41,11 @@ public void doPost(HttpServletRequest request, HttpServletResponse response) thr
    	try {
    		//HttpSession session = request.getSession();
    		//Integer id = (Integer) session.getAttribute("id");
+   		
    		String BasicInfoId = request.getParameter("stock_id");
+   		
+   		Cookie cookie = new Cookie("key","stock_id");
+   		response.addCookie(cookie); 
    		
    		System.out.println("print:"+BasicInfoId);
 			List list = dao.selectAll(BasicInfoId);

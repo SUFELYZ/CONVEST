@@ -1,0 +1,73 @@
+package servlet;
+
+import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.net.URLDecoder;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+
+import com.alibaba.fastjson.JSONArray;
+
+import dao.Stock_event_Dao;
+import dao.Stock_info_Dao;
+
+@WebServlet (name = "Querystock_event", urlPatterns = {"/Querystock_event"})
+public class Stock_event_Servlet extends HttpServlet {
+
+private Stock_event_Dao dao = new Stock_event_Dao();
+
+
+public void doGet(HttpServletRequest request,
+                 HttpServletResponse response)
+         throws ServletException, IOException
+{
+   // 设置响应内容类型
+   response.setContentType("text/html");
+
+   // 实际的逻辑是在这里
+   PrintWriter out = response.getWriter();
+   out.println("<h1>get method invalid！</h1>");
+}
+
+public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+   	try {
+   		//HttpSession session = request.getSession();
+   		//Integer id = (Integer) session.getAttribute("id");
+   		String event = request.getParameter("stock_event");
+   		
+   		Cookie[] cookies = request.getCookies();
+   		Cookie cookie = null;
+   		cookie = cookies[cookies.length];
+   		if(event==null)
+   		{
+   		event= URLDecoder.decode(cookie.getValue(), "utf-8");
+   		}
+   		System.out.println("print:"+event);
+			List list = dao.selectAll(event);
+			System.out.println(list);
+			
+			
+		    String CONTENT_TYPE = "application/json; charset=GBK";
+		    response.setContentType(CONTENT_TYPE);
+		    PrintWriter out = response.getWriter();
+		    out.println(JSONArray.toJSONString(list));
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+}
+public void destroy()
+{
+   // 什么也不做
+}
+}
+

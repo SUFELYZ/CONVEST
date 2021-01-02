@@ -147,8 +147,8 @@
       
                   <form role="search" >
                     <div class="input-group" >
-                      <input type="text" placeholder="输入股票代码或企业名称" class="form-control"><span class="input-group-btn" id="template">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                      <input type="text" placeholder="输入股票代码或企业名称" class="form-control" id="stock_event_id"><span class="input-group-btn" id="template" >
+                        <button type="button" class="btn btn-template-main" ><i class="fa fa-search"></i></button></span>
                     </div>
                   </form>
                 </div>
@@ -203,9 +203,9 @@
 	 <script type="text/html" id="stock_event-script">
 {{each data value i}}
 <tr class="table-data-line">
-<td> {{value.location}}</td>
-<td> {{value.Industry}}</td>
-<td> {{value.Chairman}}</td>
+<td> {{value.eventtime}}</td>
+<td> {{value.eventtype}}</td>
+<td> {{value.eventcontent}}</td>
 </tr>
 {{/each}}	 
 	 </script>
@@ -298,7 +298,7 @@
 	        type: "post",
 	        cache:false,
 	        data:{
-	        	stock_event:jQuery("#stock_event").val(),
+	        	stock_event:jQuery("#stock_event_id").val(),
 	        	
 	        },
 	        async: false,

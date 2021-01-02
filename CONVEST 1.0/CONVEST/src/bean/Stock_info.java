@@ -42,7 +42,7 @@ public class Stock_info {
 	public String get_LegalRepresentative() {
 		return LegalRepresentative;
 	}
-	public String Manager() {
+	public String get_Manager() {
 		return Manager;
 	}
 	public String get_ShareholdingEquity() {
