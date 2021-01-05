@@ -63,8 +63,8 @@ public class user_Dao {
 				return u;
 		  }
 		  
-		  public void add(String name, String password) throws SQLException{
-				String sql = "insert into user(user_id, username, password) values( default ,'"+name+"','"+password+"')";
+		  public void add(String name, String password,String email) throws SQLException{
+				String sql = "insert into user(user_id, username, password,email) values( default ,'"+name+"','"+password+"','"+email+"')";
 				System.out.println(sql);
 				stmt.execute(sql);
 			}

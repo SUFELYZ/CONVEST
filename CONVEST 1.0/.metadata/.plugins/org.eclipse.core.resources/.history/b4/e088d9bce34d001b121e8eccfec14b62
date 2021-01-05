@@ -1,0 +1,48 @@
+package admin;
+
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+public class AdminInfo {
+
+    private static String Stock = "";//鐢ㄦ埛鍚�
+    private static String StockName = "";//鐢ㄦ埛id
+    private static String Per = "";//骞寸骇id
+    private static String Com = "";//骞寸骇
+    private static String Sch = "";//瀛﹂櫌id
+  /*  private static String facultyName = "";//瀛﹂櫌
+    private static String majorId = "";//涓撲笟id
+    private static String majorName = "";//涓撲笟
+    private static Set<String> classIdSet = new HashSet();//鎵�閫夎鐨刬d
+    private static Set<String> classTypeSet = new HashSet();//鎵�閫夎鐨勫悕绉�
+    private static Map<String,Set<String>> classType_subMap = new HashMap();*/
+
+    public static String getStock() {
+        return Stock;
+    }
+
+    
+
+    public static String getStockName() {
+        return StockName;
+    }
+
+
+    public static String getPer() {
+        return Per;
+    }
+
+
+    public static String getCom() {
+        return Com;
+    }
+
+  
+    public static String getSch() {
+        return Sch;
+    }
+
+}

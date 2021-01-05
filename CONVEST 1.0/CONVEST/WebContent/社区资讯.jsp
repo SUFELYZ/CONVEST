@@ -61,7 +61,7 @@
       </div>
       <!-- Top bar end-->
       <!-- Login Modal-->
-      <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade">
+      <div id="login-modal" tabindex="-1" role="dialog" aria-labelledFrom="login-modalLabel" aria-hidden="true" class="modal fade">
         <div role="document" class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -117,7 +117,7 @@
               <form role="search" class="navbar-form">
                 <div class="input-group">
                   <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn">
-                    <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                    <button type="button" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
                 </div>
               </form>
             </div>
@@ -149,30 +149,145 @@
               </div>
             </div>
           </section>
-          <section class="bar">
-            <div class="row portfolio-project">
+            
               
-              
-              <div class="col-sm-12">
-                <div class="heading">
-                  <h3>美油上攻41关口，但上行仍面临重大阻力</h3>
+      <!-- LEFT COLUMN _________________________________________________________-->
+              <div id="blog-listing-big" class="col-md-9">
+                  <div class="post" id="qeone">
+                      <h2><a>推荐资讯</a></h2>
+                    
+                          
+                         <br>
+                   <div class="post" id="qeone">
+                      <h3><a id="title1">我国国防法修订 明年1月1日起施行</a></h3>
+                       <div class="row">
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name1">新华社 刘硕</a></p>
+                          </div>
+                          
+                      </div>
+                  </div>
+                  <div class="post" id="qetwo">
+                      <h3><a id="title2">2021年商务工作要干这些事</a></h3>
+                      <div class="row" >
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name2">新华社 于佳欣 王雨萧</a></p>
+                          </div>                 
+                      </div> 
+                  </div>
+                  <div class="post" id="qethree">
+                      <h3><a id="title3">刑法完成新一轮大修 刑事责任年龄作出调整</a></h3>
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name3">新华社 罗沙 刘硕</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="post" id="qefour">
+                      <h3><a id="title4">刑法修正案（十一）通过 证监会：推动加快修改完善刑事立案追诉标准</a></h3>
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name4">上海证券报·中国证券网 </a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="post" id="qefive">
+                      <h3><a id="title5">广西两个铁路项目26日开工建设</a></h3>
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name5">新华社 林凡诗</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="post" id="qesix">
+                      <h3><a id="title6">“新媒体影响力指数”TOP10、“微信原创传播力指数”TOP10榜单揭晓</a></h3>
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name6">传媒茶话会微信公众号</a></p>
+                          </div>
+                      </div>
+                  </div>
+                   <div class="post" id="qeseven">
+                      <h3><a id="title7">湖北试行国企领导市场化公开选聘</a></h3>
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name7">新华社 徐海波</a></p>
+                          </div>
+                      </div>
+                  </div>
+                   <div class="post" id="qeeight">
+                      <h3><a id="title8">特写：面对审计整改追问，部长们这样回答</a></h3>
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name8">新华社 刘红霞</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="post" id="qenine">
+                      <h3><a id="title9">通过！我国出台长江保护法守护母亲河</a></h3>
+                      <div class="row">
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name9">新华社 高敬</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="post" id="qeten">
+                      <h3><a id="title10">北京：加紧精准流调溯源和应检尽检</a></h3>
+                      <div class="row" >
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name10">新华社 赵旭 孙蕾 田晨旭</a></p>
+                          </div>
+                      </div>
+                  </div>                
+                  <div class="post" id="qe1" style="display:none">
+                      <h3><a id="title11">武汉城市圈第5条城际铁路正式开通运营</a></h3>
+                      <div class="row" >
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name11">新华社 王贤</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="post" id="qe2" style="display:none">
+                      <h3><a id="title12">全国商务工作电视电话会议召开 部署2021年重点工作</a></h3>
+                      <div class="row" >
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name12">上海证券报·中国证券网</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="post" id="qe3" style="display:none"> 
+                      <h3><a id="title13">湘鄂渝黔桂边区重要铁路枢纽“再升级”</a></h3>
+                      <div class="row" >
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name13">新华社 史卫燕</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="post" id="qe4" style="display:none">
+                      <h3><a id="title14">十三届全国人大四次会议将于2021年3月5日在京召开</a></h3>
+                      <div class="row" >
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name14">新华社 王琦</a></p>
+                          </div>
+                      </div>
+                  </div>
+                   <div class="post" id="qe5" style="display:none">
+                      <h3><a id="title15">三个月时间，广州浪奇“黑洞”扩大了50%，何时是尽头？</a></h3>
+                       <div class="row" >
+                          <div class="col-sm-6">
+                              <p class="author-category">From <a id="name15">上海证券报微信公众号 邱德坤</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  
+
+                     
+                  
                 </div>
-                <p>周二(11月10日)欧市盘中，美国原油期货于上涨近1%上攻41美元，周一(11月9日)一度上涨超10%创下5月以来最大涨幅，因新冠疫苗取得重大突破的消息极大的提振了市场乐观情绪，不过当前投资者已消化了疫苗相关的利好，仍忧心欧美经济受疫情冲击恐影响近期需求，可能令油价涨势受限。自10月初以来，由于欧洲和美国以及亚洲部分地区的第二波疫情浪潮有可能破坏第二季的需求复苏，市场越来越担心近期的石油需求。
-
-截至发稿，美国原油期货价格报40.56美元/桶，涨0.67%；布伦特原油期货价格报42.79美元/桶，涨0.92%。</p>
-                <p>周一辉瑞表示，根据初步试验结果，旗下实验性新冠疫苗的有效性超过90%。这是抗击疫情的重大进展，新冠大流行在美国造成超过23.7万人丧生，数百万人失业。
-
-摩根大通在一份报告中指出，一种可行的疫苗无疑会改变石油市场的趋势，因为石油市场一半的需求来自于市场环境。但正如以前所写的那样，石油是一种现货资产，必须首先消除当前的供需失衡，才能实现一到两年后的价格上涨。
-
-花旗集团的分析师也仍保持谨慎情绪，称2021年国际原油供需两线的消息面前景对于油市多头而言仍然严峻。虽然疫苗研发正在取得突破进展，但是实现全民免疫仍是个任重道远的过程，在此之前，疫情仍会进一步扩散。与此同时面，许多行业，如航空和旅游业，已在疫情期间遭受重创后全民重挫，即使疫情消失，面对市场的新常态，其也料难立刻恢复，这对油市需求仍将构成持久的拖累。而与之相反则是，OPEC+各国在2021年进一步恢复产能也将是势在必行的预料中状况。
-
-在上述状况背景下，花旗将其原先对国际油价给出的预估进一步下修，预计布伦特与美国原油在2021年全年的均价将仅为54美元和49美元，相比当前反弹幅度也就25%左右。</p>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    
+                </div>
+              </div>       
+             
+              
       <!-- FOOTER -->
      <footer class="main-footer">
         <div class="container">
@@ -229,5 +344,9 @@
     <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
     <script src="js/front.js"></script>
-</body>
+<script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/template.js"></script>
+     
+  </body>
 </html>
+

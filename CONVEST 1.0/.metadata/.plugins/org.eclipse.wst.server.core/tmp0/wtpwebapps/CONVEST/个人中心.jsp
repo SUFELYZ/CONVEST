@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -62,7 +63,7 @@
       <!-- Top bar end-->
       <!-- Login Modal-->
       <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modalLabel" aria-hidden="true" class="modal fade">
-        <div role="document" class="modal-dialog">
+        <div role="document1" class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h4 id="login-modalLabel" class="modal-title">用户登录</h4>
@@ -71,13 +72,13 @@
             <div class="modal-body">
               <form action="个人中心.jsp" method="get">
                 <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
+                  <input id="myusername" type="text" placeholder="用户名" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="密码" class="form-control">
+                  <input id="mypassword" type="password" placeholder="密码" class="form-control">
                 </div>
                 <p class="text-center">
-                  <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> 登录</button>
+                  <button class="btn btn-template-outlined" onclick="login()"><i class="fa fa-sign-in"></i> 登录</button>
                 </p>
               </form>
               <p class="text-center text-muted">还没注册？</p>
@@ -164,18 +165,19 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="password_1">新密码</label>
-                        <input id="password_1" type="password" class="form-control">
+                        <input id="password_1" type="password" class="form-control" onkeyup="validate()">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="password_2">再次输入新密码</label>
-                        <input id="password_2" type="password" class="form-control">
+                        <input id="password_2" type="password" class="form-control" onkeyup="validate()">
                       </div>
                     </div>
                   </div>
+                   <div id="tishi"></div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-save"></i> 保存新密码</button>
+                    <button type="submit" class="btn btn-template-outlined" onclick="submitpwd()" ><i class="fa fa-save"></i> 保存新密码</button>
                   </div>
                 </form>
               </div>
@@ -226,7 +228,7 @@
                       </div>
                     </div>
                     <div class="col-md-12 text-center">
-                      <button type="submit" class="btn btn-template-outlined"><i class="fa fa-save"></i> 保存修改结果</button>
+                      <button type="submit" class="btn btn-template-outlined" onclick="changeinfo()"><i class="fa fa-save"></i> 保存修改结果</button>
                     </div>
                   </div>
                 </form>
@@ -241,7 +243,7 @@
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
                     <li class="nav-item"><a href="个人中心.jsp" class="nav-link active"><i class="fa fa-list"></i> 个人信息</a></li>
-                    <li class="nav-item"><a href="customer-wishlist.jsp" class="nav-link"><i class="fa fa-heart"></i> 邮件订阅记录</a></li>
+                    <li class="nav-item"><a href="customer-wishlist.jsp" class="nav-link"><i class="fa fa-heart"></i> 收藏夹</a></li>
            
                   </ul>
                 </div>
@@ -308,4 +310,183 @@
     <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
     <script src="js/front.js"></script>
   </body>
+  
+   <script>
+     
+     
+     function submitpwd(){
+    	
+    	 
+    	 var oldpassword = document.getElementById("password_old").value;
+    	 if(oldpassword == "")
+		   {
+		   alert("请填写密码！");
+		   }
+         $.ajax({
+             url:"querypwd",
+             type: "post",
+             async: false,
+             data: {
+      	        user_id: 1,
+              },
+             success: function (data) {
+            	 if(data[0].password == oldpassword){
+            		change(); 
+            	 }
+            	 else{alert("原密码填写错误");blank();}
+             }, error: function (data) {
+           	     alert("处理异常");
+           	     console.log(data);
+         }
+     });
+    }
+     </script>
+      <script>
+     function validate() {
+    	 var password1 = document.getElementById("password_1").value;
+    	 var password2 = document.getElementById("password_2").value;
+    	 if(password1 == password2) {
+    	 document.getElementById("tishi").innerHTML="<font color='green'>密码相同</font>";
+    	 document.getElementById("btn").disabled = false;
+    	 }
+    	 else {
+    	 document.getElementById("tishi").innerHTML="<font color='red'>密码不同</font>";
+    	 document.getElementById("btn").disabled = true;
+    	 }
+    	 }
+     </script>
+     
+     <script>
+     function change(){
+    	 var password = document.getElementById("password_1").value;
+         $.ajax({
+             url:"updatepwd",
+             type: "post",
+             async: false,
+             data: {
+      	        password:password,
+      	        },
+             success: function (data) {
+            	 alert("修改成功！");
+            	 var url = "首页.jsp";
+                 window.location.href = url;
+             }, error: function (data) {
+           	     alert("处理异常");
+           	     console.log(data);
+         }
+     });
+    }
+     </script>
+    
+    
+     <script>
+     //更新个人信息
+     function changeinfo(){
+    	 var username = document.getElementById("name").value;
+    	 var company = document.getElementById("company").value;
+    	 var code = document.getElementById("code").value;
+    	 var address = document.getElementById("address").value;
+    	 var email = document.getElementById("email_account").value;
+    	 var phone = document.getElementById("phone").value;
+    	 
+         $.ajax({
+             url:"updateinfo",
+             type: "post",
+             async: false,
+             data: {
+      	        username:username,
+      	        phone:phone,
+      	        code:code,
+      	        address:address,
+      	        email:email,
+      	        company:company,
+              },
+             success: function (data) {
+            	 window.location.reload();
+             }, error: function (data) {
+           	     alert("处理异常");
+           	     console.log(data);
+         }
+     });
+     }
+    
+     function login(){
+    		var myusername = $("#myusername").val();
+    		var mypassword = $("#mypassword").val();
+    		
+    		 if(myusername == "")
+    			   {
+    			   alert("请填写用户名！");
+    			   }
+    		   else if(mypassword == "")
+    			  {
+    			 	alert("请填写密码！");
+    			  }
+    		   else {
+    		$.ajax({
+    			url:"login",   
+    			type:"post",
+    			data:{
+    	    		   Name: myusername,
+    	    		   Password:mypassword,
+    	    		},
+    	    	async:false,
+    			success:function(data){
+    				if(data != ""){
+    					alert("登录成功");
+    					window.location.href="首页.jsp";
+    				}else{
+    					alert("登录失败");
+    				}
+    			},
+    			error:function(XMLHttpRequest, textStatus, errorThrown) {
+    				alert("系统错误");
+    			}
+    		});  
+    	   		   
+    	   	   }
+    		
+    	}
+    $(document).ready(function () {
+    	 var label="<label class=\"control-label col-md-3\" >";
+    	 var lab="<label class=\"control-label col-md-3\" style=\"text-align: center;\">";
+    	 var info;
+         $.ajax({
+             url:"querypwd",
+             type: "post",
+             async: false,
+             data: {
+       	        user_id: 1,
+               },
+             success: function (data) {
+            	 console.log(data);
+            	 data[0].phone = data[0].phone==null? "" :data[0].phone;
+            	 data[0].code = data[0].code==null? "" :data[0].code;
+            	 data[0].address = data[0].address==null? "" :data[0].address;
+            	 data[0].email = data[0].email==null? "" :data[0].email;
+            	 data[0].username = data[0].username==null? "" :data[0].username;
+            	 data[0].company = data[0].company==null? "" :data[0].company;
+            	 
+            	 $("#name").append(label + "姓名" + "</label>" + lab + data[0].username +"</label>");
+            	 $("#code").append(label + "邮编" + "</label>" + lab + data[0].code +"</label>");
+            	 $("#phone").append(label + "联系方式" + "</label>" + lab + data[0].phone +"</label>");
+            	 $("#company").append(label + "公司" + "</label>" + lab + data[0].company +"</label>");
+            	 $("#address").append(label + "所在地" + "</label>" + lab + data[0].address +"</label>");
+            	 $("#email_account").append(label + "电子邮箱" + "</label>" + lab + data[0].email +"</label>");
+            	 document.getElementById("name").value = data[0].username;
+            	 document.getElementById("phone").value = data[0].phone;
+            	 document.getElementById("company").value = data[0].company;
+            	 document.getElementById("address").value = data[0].address;
+            	 document.getElementById("email_account").value = data[0].email;
+            	 document.getElementById("code").value = data[0].code;
+            	 
+             
+             }, error: function (data) {
+           	     alert("处理异常");
+           	     console.log(data);
+         }
+     });
+     })
+     </script>
+   
 </html>

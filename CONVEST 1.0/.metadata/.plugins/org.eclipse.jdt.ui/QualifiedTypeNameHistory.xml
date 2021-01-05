@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.neo4j.fabric.stream.StatementResult"/>
+    <fullyQualifiedTypeName name="org.neo4j.procedure.builtin.BuiltInDbmsProcedures.SystemInfo"/>
+    <fullyQualifiedTypeName name="dao.SQL_Dao"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+</qualifiedTypeNameHistroy>

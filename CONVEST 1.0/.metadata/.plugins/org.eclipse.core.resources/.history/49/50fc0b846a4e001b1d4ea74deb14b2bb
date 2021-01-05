@@ -1,0 +1,82 @@
+package preparations;
+
+import org.neo4j.driver.*;
+import org.neo4j.driver.types.Path;
+import org.neo4j.driver.types.Relationship;
+
+import java.util.Iterator;
+import java.util.List;
+
+public class GetPaths {
+
+    static Driver driver = null;
+
+    public static void getDriver(){
+        String uri = "bolt://localhost:7687";
+        String user = "neo4j";//鍐欎綘鑷繁鐨刵eo4j鐨勭敤鎴峰悕
+        String password = "991117";//鍐欎綘鑷繁鐨刵eo4j鐨勫瘑鐮�
+        driver = GraphDatabase.driver(uri, AuthTokens.basic(user,password));
+    }
+
+    public static void close(){
+        if(driver!=null){
+            driver.close();
+        }
+    }
+
+    public static void getPathsInfo(String cypher){
+        getDriver();
+
+        int count = 0;
+        try(Session session = driver.session()){
+            //result鍖呭惈浜嗘墍鏈夌殑path
+            Result result = session.run(cypher);
+
+            while(result.hasNext()){
+                Record record = result.next();
+                List<Value> value = record.values();
+
+                for(Value i:value){
+                    Path path = i.asPath();
+                    //澶勭悊璺緞涓殑鍏崇郴
+                    Iterator<Relationship> relationships = path.relationships().iterator();
+
+                    //Iterator<Node> nodes = path.nodes().iterator();//寰楀埌path涓殑鑺傜偣
+
+                    while(relationships.hasNext()){
+                        count++;
+                        Relationship relationship = relationships.next();
+
+                        long startNodeId = relationship.startNodeId();
+                        long endNodeId = relationship.endNodeId();
+                        String relType = relationship.type();
+
+                        System.out.println("关系"+count+"： ");
+                        System.out.println("关系类型："+relType);
+                        System.out.println("from "+startNodeId+"-----"+"to "+endNodeId);
+
+                        System.out.println("关系属性如下：");
+
+                        //寰楀埌鍏崇郴灞炴�х殑鍋�
+                        Iterator<String> relKeys = relationship.keys().iterator();
+                        //杩欓噷澶勭悊鍏崇郴灞炴��
+                        while(relKeys.hasNext()){
+                            String relKey = relKeys.next();
+                            String relValue = relationship.get(relKey).asObject().toString();
+                            System.out.println(relKey+"-----"+relValue);
+                        }
+                        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    }
+                }
+            }
+        }
+        close();
+    }
+
+    public static void main(String... args){
+
+    	 String cypher = "match p=shortestPath((n1:数据库课程{名称:'数据库'})-[*..6]-(n2:数据库知识点{名称:'概念结构设计'})) return p";
+        getPathsInfo(cypher);
+    }
+
+}

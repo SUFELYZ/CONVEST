@@ -6,20 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="doubleClick"/>
 		<list key="findhistory">
-			<item value="com.mysql.jdbc.Driver"/>
-			<item value="jquery"/>
-			<item value="districtAndCounty"/>
-			<item value="data"/>
-			<item value="country"/>
-			<item value="addrShow"/>
-			<item value="current"/>
-			<item value="met1"/>
-			<item value="href"/>
-			<item value="herf"/>
-			<item value="name"/>
-			<item value="LegalRepresentitive"/>
+			<item value="doubleClick"/>
+			<item value="svg"/>
+			<item value="myinput"/>
+			<item value="display"/>
+			<item value="template"/>
+			<item value="get"/>
+			<item value="post"/>
+			<item value="checkButton"/>
+			<item value="login"/>
+			<item value="GroupExplorer"/>
+			<item value="dataJson"/>
+			<item value="stock_id"/>
+			<item value=".img-fluid"/>
+			<item value="tojson"/>
+			<item value="json"/>
 		</list>
 		<list key="replacehistory">
 			<item value="LegalRepresentative"/>

@@ -10,12 +10,14 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 import bean.user;
 import dao.user_Dao;
 import com.alibaba.fastjson.JSONArray;
 
+@WebServlet (name = "querypwd", urlPatterns = {"/querypwd"})
 // ¿©’π HttpServlet ¿‡
 public class queryPwd extends HttpServlet {
  

@@ -1,0 +1,53 @@
+package dao;
+
+import org.neo4j.driver.*;
+
+import org.neo4j.driver.types.Node;
+import org.neo4j.driver.types.Path;
+import org.neo4j.driver.types.Relationship;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import bean.CQL;
+import bean.Stock_event;
+
+public class CQL_Dao {
+	  static Driver driver = null;
+
+	    public static void getDriver(){
+	        String uri = "bolt://localhost:7687";
+	        String user = "neo4j";//鍐欎綘鑷繁鐨刵eo4j鐨勭敤鎴峰悕
+	        String password = "991117";//鍐欎綘鑷繁鐨刵eo4j鐨勫瘑鐮�
+	        driver = GraphDatabase.driver(uri, AuthTokens.basic(user,password));
+	    }
+
+	    public static void close(){
+	        if(driver!=null){
+	            driver.close();
+	        }
+	    }
+	    public List<CQL> selectAll(String str1) throws SQLException
+		{
+			String sql = "select eventtime,eventtype,eventcontent from big_event join stock on big_event.StockId=stock.StockId where stockname like '%"+str1+"%'";
+			System.out.println(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			List<Stock_event> Note = new ArrayList<>();
+			while(rs.next())
+			{
+				Stock_event n = new Stock_event(rs.getString(1),rs.getString(2),rs.getString(3));
+				Note.add(n);		
+			}
+			return Note;
+		}
+	    
+
+}

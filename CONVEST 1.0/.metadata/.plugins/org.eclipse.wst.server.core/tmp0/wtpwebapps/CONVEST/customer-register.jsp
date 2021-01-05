@@ -155,7 +155,7 @@
                 <p>即刻注册，成为CONVEST平台正式用户，解锁更多资讯内容！</p>
                 
                 <hr>
-                <form action="customer-orders.jsp" method="get">
+                
                   <div class="form-group">
                     <label for="name-login">用户名</label>
                     <input id="name-login" type="text" class="form-control">
@@ -169,9 +169,9 @@
                     <input id="password-login" type="password" class="form-control">
                   </div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-user-md"></i> 注 册</button>
+                    <button type="submit" class="btn btn-template-outlined"  onclick="regist()"><i class="fa fa-user-md"></i> 注 册</button>
                   </div>
-                </form>
+                
               
               </div>
             </div>
@@ -239,4 +239,60 @@
     <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
     <script src="js/front.js"></script>
   </body>
+  <script type="text/javascript">
+ 
+  
+  function regist()
+{
+	var username = $("#name-login").val();
+	var email = $("#email-login").val();
+	var password = $("#password-login").val();
+	var pwdRegex = new RegExp('(?=.*[0-9])(?=.*[a-zA-Z]).{8,30}');
+	 
+	
+	 if(username == "")
+	   {
+	   alert("请填写用户名！");
+	   }
+ else if(email == "" )
+	  {
+	 	alert("请填写邮箱！");
+	  }
+ else if(email.indexOf("@")==-1)
+	  {
+	  alert("请填写正确的邮箱！");
+	  }
+ else if(password == "" )
+ {
+	alert("请填写密码！");
+ }
+ else if (!pwdRegex.test(password)) {
+	    alert("您的密码复杂度太低（密码中必须包含字母、数字），请及时修改密码！");
+	}
+
+ else {
+	$.ajax({
+		url:"register",
+		type:"post",
+		data:{
+			username:username,
+			email:email,
+			password:password,
+			},
+		success:function(data){
+			if(data != ""){
+				alert("注册成功!");
+			}
+			else {
+				alert("用户名重复，注册失败!");
+			}
+			window.location.reload();
+		},
+		error:function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("系统错误");
+		}
+	});
+	  }
+}
+</script>
 </html>

@@ -1,0 +1,178 @@
+package admin;
+
+import org.bouncycastle.math.ec.custom.sec.SecT113R1Point;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+//鐩墠鍙敮鎸佹煡璇㈣绋嬬骇鍒竴涓嬬殑鍏崇郴
+//鎬庢牱浣跨殑鍦ㄧ敤鎴风櫥褰曞悗锛屽缓绔嬩竴涓叏灞�鍞竴鐨凙dminInfo!!!!!!!!!!!!!
+public class AdminInfo {
+
+    private static String username = "";//鐢ㄦ埛鍚�
+    private static String id = "";//鐢ㄦ埛id
+    private static String gradeId = "";//骞寸骇id
+    private static String gradeName = "";//骞寸骇
+    private static String facultyId = "";//瀛﹂櫌id
+    private static String facultyName = "";//瀛﹂櫌
+    private static String majorId = "";//涓撲笟id
+    private static String majorName = "";//涓撲笟
+    private static Set<String> classIdSet = new HashSet();//鎵�閫夎鐨刬d
+    private static Set<String> classTypeSet = new HashSet();//鎵�閫夎鐨勫悕绉�
+    private static Map<String,Set<String>> classType_subMap = new HashMap();
+
+    public static String getUsername() {
+        return username;
+    }
+
+    public static void setUsername(String username) {
+        AdminInfo.username = username;
+    }
+
+    public static String getId() {
+        return id;
+    }
+
+    public static void setId(String id) {
+        AdminInfo.id = id;
+    }
+
+    public static String getGradeId() {
+        return gradeId;
+    }
+
+    public static void setGradeId(String gradeId) {
+        AdminInfo.gradeId = gradeId;
+    }
+
+    public static String getGradeName() {
+        return gradeName;
+    }
+
+    public static void setGradeName(String gradeName) {
+        AdminInfo.gradeName = gradeName;
+    }
+
+    public static String getFacultyId() {
+        return facultyId;
+    }
+
+    public static void setFacultyId(String facultyId) {
+        AdminInfo.facultyId = facultyId;
+    }
+
+    public static String getFacultyName() {
+        return facultyName;
+    }
+
+    public static void setFacultyName(String facultyName) {
+        AdminInfo.facultyName = facultyName;
+    }
+
+    public static String getMajorId() {
+        return majorId;
+    }
+
+    public static void setMajorId(String majorId) {
+        AdminInfo.majorId = majorId;
+    }
+
+    public static String getMajorName() {
+        return majorName;
+    }
+
+    public static void setMajorName(String majorName) {
+        AdminInfo.majorName = majorName;
+    }
+
+    //娣诲姞璇剧▼Id
+    public static void addClassIdSetItem(String... items){
+        int length = items.length;
+
+        for(int i = 0;i<length;i++){
+            classIdSet.add(items[i]);
+        }
+    }
+    //绉婚櫎璇剧▼id
+    public static void deleteClassIdSetItem(String... items){
+        int length = items.length;
+
+        for(int i = 0;i<length;i++){
+            classIdSet.remove(items[i]);
+        }
+    }
+    //杩斿洖璇剧▼id
+    public static String[] getClassIdArray(){
+        int length = classIdSet.size();
+        Object[] classIdArrayObj = classIdSet.toArray();
+        String[] classIdArray = new String[length];
+
+        for(int i = 0;i<length;i++){
+            classIdArray[i] = classIdArrayObj[i].toString();
+        }
+
+        return classIdArray;
+    }
+    //娣诲姞璇剧▼绾у埆鐨勮妭鐐�
+    public static void addClassTypeSetItem(String... items){
+        int length = items.length;
+
+        for(int i = 0;i<length;i++){
+            classTypeSet.add(items[i]);
+        }
+    }
+    //绉婚櫎璇剧▼
+    public static void deleteClassTypeSetItem(String... items){
+        int length = items.length;
+
+        for(int i = 0;i<length;i++){
+            classTypeSet.remove(items[i]);
+        }
+    }
+    //寰楀埌璇剧▼绾у埆鐨勮妭鐐圭被鍨嬬殑闆嗗悎
+    public static String[] getClassTypeArray(){
+        int length = classTypeSet.size();
+        Object[] classTypeArrayObj = classTypeSet.toArray();
+        String[] classTypeArray = new String[length];
+
+        for(int i = 0;i<length;i++){
+            classTypeArray[i] = classTypeArrayObj[i].toString();
+        }
+
+        return classTypeArray;
+    }
+    //娣诲姞鏌愯绋嬩笅闈㈢殑鑺傜偣绫诲瀷锛岃繖閲岄粯璁や负鈥滅珷鑺傗�濆拰鈥滅煡璇嗙偣鈥�,涓嶅お鏄庣櫧娌″叧绯�
+    //鍚庨潰浼氭湁鎵�浜嗚В
+    public static void addClassType_subMap(String classTypeSetItem,String... items){
+        Set<String> classType_subSet = classType_subMap.get(classTypeSetItem);
+
+        if(classType_subSet==null){
+            classType_subSet = new HashSet();
+        }
+        int length = items.length;
+
+        for(int i = 0;i<length;i++){
+            classType_subSet.add(items[i]);
+        }
+        classType_subMap.put(classTypeSetItem,classType_subSet);
+    }
+    //寰楀埌鏌愯绋嬩笅闈㈢殑鑺傜偣绫诲瀷闆嗗悎锛岃繖閲岄粯璁や负鈥滅珷鑺傗�濆拰鈥滅煡璇嗙偣鈥�,涓嶅お鏄庣櫧娌″叧绯�
+    public static String[] getClassType_subArray(String classTypeSetItem){
+        Set classType_subSet = classType_subMap.get(classTypeSetItem);
+        int length = classType_subSet.size();
+        Object[] classType_subArrayObj = classType_subSet.toArray();
+        String[] classType_subArray = new String[length];
+
+        for(int i = 0;i<length;i++){
+            classType_subArray[i] = classType_subArrayObj[i].toString();
+        }
+        return classType_subArray;
+    }
+    //寰楀埌鍏ㄩ儴璇剧▼涓嬮潰鐨勮妭鐐圭被鍨嬮泦鍚�
+    public static Map getClassType_subMap(){
+
+        return classType_subMap;
+    }
+}

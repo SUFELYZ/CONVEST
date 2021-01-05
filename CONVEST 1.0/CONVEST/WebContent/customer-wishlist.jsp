@@ -130,12 +130,12 @@
         <div class="container">
           <div class="row d-flex align-items-center flex-wrap">
             <div class="col-md-7">
-              <h1 class="h2">邮件订阅记录</h1>
+              <h1 class="h2">收藏夹</h1>
             </div>
             <div class="col-md-5">
               <ul class="breadcrumb d-flex justify-content-end">
                 <li class="breadcrumb-item"><a href="首页.jsp">首 页</a></li>
-                <li class="breadcrumb-item active">邮件订阅记录</li>
+                <li class="breadcrumb-item active">收藏夹</li>
               </ul>
             </div>
           </div>
@@ -145,7 +145,7 @@
         <div class="container">
           <div class="row bar">
             <div class="col-lg-9">
-              <p class="lead">往期订阅邮件及简介如下：</p>
+              <p class="lead">我的收藏夹收藏了下列资讯：</p>
               
               <div class="col-sm-12">
                 <div class="heading">
@@ -176,7 +176,18 @@
             </div>
             <div class="col-lg-3 mt-4 mt-lg-0">
               <!-- CUSTOMER MENU -->
-              
+              <div class="panel panel-default sidebar-menu">
+                <div class="panel-heading">
+                  <h3 class="h4 panel-title">Customer section</h3>
+                </div>
+                <div class="panel-body">
+                  <ul class="nav nav-pills flex-column text-sm">
+                    <li class="nav-item"><a href="个人中心.jsp" class="nav-link "><i class="fa fa-list"></i> 个人信息</a></li>
+                    <li class="nav-item"><a href="customer-wishlist.jsp" class="nav-link active"><i class="fa fa-heart"></i> 收藏夹</a></li>
+           
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>

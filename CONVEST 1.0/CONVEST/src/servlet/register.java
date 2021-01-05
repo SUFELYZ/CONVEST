@@ -39,13 +39,14 @@ public class register extends HttpServlet {
 	  request.setCharacterEncoding("UTF-8");
       String name = request.getParameter("username");
       String password = request.getParameter("password");
+      String email = request.getParameter("email");
       System.out.println(name);
       try {
 		user u = dao.QuerybyName(name);
 		System.out.println(u);
 		if(u != null) {//已存在用户
 		}else {
-			dao.add(name, password);
+			dao.add(name, password,email);
 	    	PrintWriter out = response.getWriter();
 	      	out.println("123");
 		}
