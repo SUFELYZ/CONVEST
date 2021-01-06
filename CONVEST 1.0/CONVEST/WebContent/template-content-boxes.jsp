@@ -71,15 +71,15 @@
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form action="个人中心.jsp" method="get">
+             <form action="个人中心.jsp" method="get">
                 <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
+                  <input id="myusername" type="text" placeholder="用户名" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="密码" class="form-control">
+                  <input id="mypassword" type="password" placeholder="密码" class="form-control">
                 </div>
                 <p class="text-center">
-                  <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> 登录</button>
+                  <button class="btn btn-template-outlined" onclick="login()"><i class="fa fa-sign-in"></i> 登录</button>
                 </p>
               </form>
               <p class="text-center text-muted">还没注册？</p>
@@ -147,8 +147,8 @@
       
                   <form role="search" >
                     <div class="input-group" >
-                      <input type="text" placeholder="输入股票代码或企业名称" class="form-control"><span class="input-group-btn">
-                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
+                      <input type="text" placeholder="输入股票代码或企业名称" class="form-control" id="stock_id"><span class="input-group-btn" id="template">
+                        <button type="button" class="btn btn-template-main"><i class="fa fa-search"></i></button></span>
                     </div>
                   </form>
                 </div>
@@ -165,12 +165,11 @@
                 </div>
                 <div class="panel-body">
                   <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="股票信息.jsp" class="nav-link">基本信息</a></li>
-                    <li class="nav-item"><a href="template-alerts.jsp" class="nav-link">股票行情</a></li>
-                    <li class="nav-item"><a href="template-buttons.jsp" class="nav-link">资金流向</a></li>
-                    <li class="nav-item"><a href="template-content-boxes.jsp" class="nav-link  active" >股东持股变动</a></li>
+                   <li class="nav-item"><a href="股票信息.jsp" class="nav-link ">基本信息</a></li>
+                    <li class="nav-item"><a href="template-alerts.jsp" class="nav-link ">股票行情</a></li>
+                    
+                    <li class="nav-item"><a href="template-content-boxes.jsp" class="nav-link active">股东持股变动</a></li>
                     <li class="nav-item"><a href="template-blocks.jsp" class="nav-link">重大事项</a></li>
-                    <li class="nav-item"><a href="template-pagination.jsp" class="nav-link">财务信息</a></li>
                    
                   </ul>
                 </div>
@@ -181,19 +180,46 @@
               <div id="accordion" role="tablist" class="mb-5">
                 <div class="card">
                   <div id="headingOne" role="tab" class="card-header">
-                    <h5 class="mb-0"><a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">中国平安</a></h5>
+                    <h5 class="mb-0"><a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">查询结果如下</a></h5>
                   </div>
                   <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse show">
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-8">
-                          <img src="img/中国平安持股变动.PNG" alt="" class="img-fluid">
+                         <div class="stock_basic_info">
+      
+         <table class="table table-hover table-bordered" id="stock_info">
+                     <thead>
+                                     <tr>
+                                       <th style="width:100px">日期</th>
+                                       <th>持股方</th>
+                                       <th>变动类型</th>
+                                       <th>变动数额</th>
+                                       <th>占比</th>
+                                     </tr>
+                                   </thead>              
+
+	  <tbody id="stock_info-body">		
+	 </tbody>
+	 <script type="text/html" id="stock_info-script">
+{{each data value i}}
+<tr class="table-data-line">
+<td> {{value.ChangeDate}}</td>
+<td> {{value.ShareholderName}}</td>
+<td> {{value.ChangeType}}</td>
+<td> {{value.ChangedShareNum}}</td>
+<td> {{value.Proportion}}</td>
+</tr>
+{{/each}}	
+ 
+	 </script>
+	 </table>
+        
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <p class="read-more text-right"><a href="blog-post.jsp" class="btn btn-template-outlined">订阅本股资讯</a></p>
 
                 
              
@@ -247,6 +273,8 @@
         </div>
       </footer>
     </div>
+    
+    
     <!-- Javascript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -260,5 +288,92 @@
     <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/template.js"></script>
+     <script>
+ $('body').on('click', '#template', function ()
+
+{ 
+	    jQuery.noConflict();
+	    jQuery('#stock_info').dataTable().fnDestroy();
+	    jQuery.ajax({
+	  
+	        url: "QueryShareholding_change",
+	        type: "post",
+	        cache:false,
+	        data:{
+	        	stock_id:jQuery("#stock_id").val(),
+	        	
+	        },
+	        async: false,
+	        success: function (data) {
+	            console.log(data);
+	            jQuery("#stock_info-body").empty();
+	            jQuery("#stock_info-body").append(template("stock_info-script", { data: data }));
+	            
+	        }, error: function (data) {
+	        }
+	    });
+	   
+ });
+	jQuery('#stock_info').dataTable({
+	     "bLengthChange": false, //开关，是否显示每页显示多少条数据的下拉框
+	     'iDisplayLength': 2, //每页初始显示5条记录
+	     'bFilter': false,  //是否使用内置的过滤功能（是否去掉搜索框）
+	     "bInfo": false, //开关，是否显示表格的一些信息(当前显示XX-XX条数据，共XX条)
+	     "bPaginate": false, //开关，是否显示分页器
+	     "bSort": false, //是否可排序 
+
+	     "oLanguage": {  //语言转换
+	       "sInfo": "显示第 _START_ 至 _END_ 项结果，共_TOTAL_ 项",
+	       "sZeroRecords": "暂无数据呜呜呜",
+	       "sLengthMenu": "每页显示 _MENU_ 项结果",
+	       "oPaginate": {
+	         "sFirst": "首页",
+	         "sPrevious": "前一页",
+	         "sNext": "后一页",
+	         "sLast": "尾页"
+	       }
+	     }
+	   });
+	 function login(){
+ 		var myusername = $("#myusername").val();
+ 		var mypassword = $("#mypassword").val();
+ 		
+ 		 if(myusername == "")
+ 			   {
+ 			   alert("请填写用户名！");
+ 			   }
+ 		   else if(mypassword == "")
+ 			  {
+ 			 	alert("请填写密码！");
+ 			  }
+ 		   else {
+ 		$.ajax({
+ 			url:"login",   
+ 			type:"post",
+ 			data:{
+ 	    		   Name: myusername,
+ 	    		   Password:mypassword,
+ 	    		},
+ 	    	async:false,
+ 			success:function(data){
+ 				if(data != ""){
+ 					alert("登录成功");
+ 					window.location.href="首页.jsp";
+ 				}else{
+ 					alert("登录失败");
+ 				}
+ 			},
+ 			error:function(XMLHttpRequest, textStatus, errorThrown) {
+ 				alert("系统错误");
+ 			}
+ 		});  
+ 	   		   
+ 	   	   }
+ 		
+ 	}
+ 
+ </script>
   </body>
 </html>

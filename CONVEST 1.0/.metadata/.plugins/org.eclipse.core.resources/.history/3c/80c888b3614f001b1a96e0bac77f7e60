@@ -1,0 +1,5 @@
+package dao;
+
+public class Shareholding_change_Dao {
+
+}

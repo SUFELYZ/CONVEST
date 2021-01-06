@@ -161,8 +161,9 @@
                    <div class="post" id="qeone">
                       <h3><a id="title1">我国国防法修订 明年1月1日起施行</a></h3>
                        <div class="row">
-                          <div class="col-sm-6">
+                          <div class="col-sm-12">
                               <p class="author-category">From <a id="name1">新华社 刘硕</a></p>
+                              <p>据介绍，此次主要修改内容包括：确立了习近平新时代中国特色社会主义思想在国防活动中的指导地位；结合党和国家机构改革、国防和军队改革实际，调整了国家机构的国防职权，增加了军委主席负责制的内容；充实了武装力量的任务和建设目标；着眼新型安全领域活动和利益的防卫需要，明确了重大安全领域防卫政策；根据国防教育和国防动员领导管理体制改革实际，充实完善了国防教育和国防动员制度；着眼“使军人成为全社会尊崇的职业”，强化了对军人地位和权益的保护；贯彻总体国家安全观和习近平外交思想，充实了对外军事关系方面的政策制度。
                           </div>
                           
                       </div>
@@ -170,112 +171,85 @@
                   <div class="post" id="qetwo">
                       <h3><a id="title2">2021年商务工作要干这些事</a></h3>
                       <div class="row" >
-                          <div class="col-sm-6">
+                          <div class="col-sm-12">
                               <p class="author-category">From <a id="name2">新华社 于佳欣 王雨萧</a></p>
+                              <p>这是商务部于26日召开的全国商务工作电视电话会议释放的信息。会议指出，尽管面对严峻复杂的国际形势特别是新冠肺炎疫情严重冲击，我国稳住外贸外资基本盘，推动消费回升，实现了商务发展回稳向好、好于预期。 </p>
                           </div>                 
                       </div> 
                   </div>
+                  
+                  
                   <div class="post" id="qethree">
-                      <h3><a id="title3">刑法完成新一轮大修 刑事责任年龄作出调整</a></h3>
+                      <h3><a id="title3">广西两个铁路项目26日开工建设</a></h3>
                       <div class="row">
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name3">新华社 罗沙 刘硕</a></p>
+                          <div class="col-sm-12">
+                              <p class="author-category">From <a id="name3">新华社 林凡诗</a></p>
+                              <p>新建柳州至广州铁路柳州至梧州段为我国中长期铁路网规划中柳州至广州铁路的组成部分，项目正线全长237.8公里，沿线经柳州、来宾、贵港、梧州4市，为国铁I级、双线电气化、客货共线铁路，设计时速160公里，批复建设工期4年。</p>
                           </div>
                       </div>
                   </div>
                   <div class="post" id="qefour">
-                      <h3><a id="title4">刑法修正案（十一）通过 证监会：推动加快修改完善刑事立案追诉标准</a></h3>
+                      <h3><a id="title4">“新媒体影响力指数”TOP10、“微信原创传播力指数”TOP10榜单揭晓</a></h3>
                       <div class="row">
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name4">上海证券报·中国证券网 </a></p>
+                          <div class="col-sm-12">
+                              <p class="author-category">From <a id="name4">传媒茶话会微信公众号</a></p>
+                            
                           </div>
                       </div>
                   </div>
-                  <div class="post" id="qefive">
-                      <h3><a id="title5">广西两个铁路项目26日开工建设</a></h3>
+                  
+                   <div class="post" id="qefive">
+                      <h3><a id="title5">特写：面对审计整改追问，部长们这样回答</a></h3>
                       <div class="row">
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name5">新华社 林凡诗</a></p>
+                          <div class="col-sm-12">
+                              <p class="author-category">From <a id="name5">新华社 刘红霞</a></p>
+                              <p>“请问国家发展改革委，部分项目未按时开工的原因是什么？针对地方实施的项目存在开工慢，或者未开工的情况是如何跟踪督促整改的？请问财政部，部分项目资金拨付进度滞后的原因是什么？在加快项目资金拨付进度方面，将采取哪些措施？两个部门在加强部门间协调沟通方面，有哪些举措？”面对国务院相关部门主要负责同志，全国人大常委会委员吕薇连发五问。</p>
                           </div>
                       </div>
                   </div>
                   <div class="post" id="qesix">
-                      <h3><a id="title6">“新媒体影响力指数”TOP10、“微信原创传播力指数”TOP10榜单揭晓</a></h3>
+                      <h3><a id="title6">通过！我国出台长江保护法守护母亲河</a></h3>
                       <div class="row">
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name6">传媒茶话会微信公众号</a></p>
+                          <div class="col-sm-12">
+                              <p class="author-category">From <a id="name6">新华社 高敬</a></p>
+                              <p>长江保护法包括总则、规划与管控、资源保护、水污染防治、生态环境修复、绿色发展、保障与监督、法律责任和附则9章，共96条。</p>
                           </div>
                       </div>
                   </div>
-                   <div class="post" id="qeseven">
-                      <h3><a id="title7">湖北试行国企领导市场化公开选聘</a></h3>
-                      <div class="row">
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name7">新华社 徐海波</a></p>
-                          </div>
-                      </div>
-                  </div>
-                   <div class="post" id="qeeight">
-                      <h3><a id="title8">特写：面对审计整改追问，部长们这样回答</a></h3>
-                      <div class="row">
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name8">新华社 刘红霞</a></p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="post" id="qenine">
-                      <h3><a id="title9">通过！我国出台长江保护法守护母亲河</a></h3>
-                      <div class="row">
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name9">新华社 高敬</a></p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="post" id="qeten">
-                      <h3><a id="title10">北京：加紧精准流调溯源和应检尽检</a></h3>
+                  <div class="post" id="qeseven">
+                      <h3><a id="title7">北京：加紧精准流调溯源和应检尽检</a></h3>
                       <div class="row" >
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name10">新华社 赵旭 孙蕾 田晨旭</a></p>
+                          <div class="col-sm-12">
+                              <p class="author-category">From <a id="name7">新华社 赵旭 孙蕾 田晨旭</a></p>
+                              <p>北京市疾病预防控制中心副主任庞星火在发布会上介绍，根据疫情防控工作需要，北京市对朝阳区3个街道、顺义区12个街道乡镇和天竺综保区相关人员进行核酸检测，实行应检尽检。经过初步检测，有5人核酸检测为阳性，均为25日北京确诊病例的密切接触者，市、区疾控机构、医疗机构正在进行复核与诊断，结果待报，不排除进一步发现病例的可能。</p>
                           </div>
                       </div>
                   </div>                
-                  <div class="post" id="qe1" style="display:none">
-                      <h3><a id="title11">武汉城市圈第5条城际铁路正式开通运营</a></h3>
+                  <div class="post" id="qeeight" style="display:none">
+                      <h3><a id="title8">武汉城市圈第5条城际铁路正式开通运营</a></h3>
                       <div class="row" >
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name11">新华社 王贤</a></p>
+                          <div class="col-sm-12">
+                              <p class="author-category">From <a id="name8">新华社 王贤</a></p>
+                              <p>新建仙桃城际线全长近17公里，标准等级为双线城际铁路，设计行车时速200公里，自汉川站至天门南站间的大福村接轨引入汉宜铁路。这条铁路线新建大福、仙桃两个车站，其中仙桃站为尽头式客运站，大福站为列车会让站不办理客运业务。武（汉）仙（桃）城际铁路线由新建仙桃城际线和既有汉宜铁路线组成，全程87公里，最快历时41分钟。</p>
                           </div>
                       </div>
                   </div>
-                  <div class="post" id="qe2" style="display:none">
+                  <div class="post" id="qenine" style="display:none">
                       <h3><a id="title12">全国商务工作电视电话会议召开 部署2021年重点工作</a></h3>
                       <div class="row" >
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name12">上海证券报·中国证券网</a></p>
+                          <div class="col-sm-12">
+                              <p class="author-category">From <a id="name9">上海证券报·中国证券网</a></p>
+                              <p>会议指出，今年以来，面对严峻复杂的国际形势特别是新冠肺炎疫情严重冲击，在以习近平同志为核心的党中央坚强领导下，全国商务系统认真落实党中央、国务院决策部署，统筹疫情防控和商务发展，团结奋进、迎难而上，稳住了外贸外资基本盘，推动了消费回升，实现了商务发展回稳向好、好于预期。消费稳步复苏，新业态新模式蓬勃发展。外贸再创新高，结构进一步优化。利用外资逆势增长，大项目稳步推进。对外投资有序发展。多双边经贸合作取得新突破。</p>
                           </div>
                       </div>
                   </div>
-                  <div class="post" id="qe3" style="display:none"> 
-                      <h3><a id="title13">湘鄂渝黔桂边区重要铁路枢纽“再升级”</a></h3>
-                      <div class="row" >
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name13">新华社 史卫燕</a></p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="post" id="qe4" style="display:none">
-                      <h3><a id="title14">十三届全国人大四次会议将于2021年3月5日在京召开</a></h3>
-                      <div class="row" >
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name14">新华社 王琦</a></p>
-                          </div>
-                      </div>
-                  </div>
-                   <div class="post" id="qe5" style="display:none">
-                      <h3><a id="title15">三个月时间，广州浪奇“黑洞”扩大了50%，何时是尽头？</a></h3>
+                 
+                   <div class="post" id="qeten" style="display:none">
+                      <h3><a id="title10">三个月时间，广州浪奇“黑洞”扩大了50%，何时是尽头？</a></h3>
                        <div class="row" >
-                          <div class="col-sm-6">
-                              <p class="author-category">From <a id="name15">上海证券报微信公众号 邱德坤</a></p>
+                          <div class="col-sm-12">
+                              <p class="author-category">From <a id="name10">上海证券报微信公众号 邱德坤</a></p>
+                              <p>不断扩大的“黑洞”，正在吞噬广州浪奇60年时光积淀的声誉和财富，也给广州浪奇的命运蒙上了不可预知的阴影。</p>
                           </div>
                       </div>
                   </div>
@@ -346,7 +320,45 @@
     <script src="js/front.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/template.js"></script>
-     
+     <script>
+     function login(){
+ 		var myusername = $("#myusername").val();
+ 		var mypassword = $("#mypassword").val();
+ 		
+ 		 if(myusername == "")
+ 			   {
+ 			   alert("请填写用户名！");
+ 			   }
+ 		   else if(mypassword == "")
+ 			  {
+ 			 	alert("请填写密码！");
+ 			  }
+ 		   else {
+ 		$.ajax({
+ 			url:"login",   
+ 			type:"post",
+ 			data:{
+ 	    		   Name: myusername,
+ 	    		   Password:mypassword,
+ 	    		},
+ 	    	async:false,
+ 			success:function(data){
+ 				if(data != ""){
+ 					alert("登录成功");
+ 					window.location.href="首页.jsp";
+ 				}else{
+ 					alert("登录失败");
+ 				}
+ 			},
+ 			error:function(XMLHttpRequest, textStatus, errorThrown) {
+ 				alert("系统错误");
+ 			}
+ 		});  
+ 	   		   
+ 	   	   }
+ 		
+ 	}
+     </script>
   </body>
 </html>
 

@@ -75,13 +75,13 @@
             <div class="modal-body">
               <form action="个人中心.jsp" method="get">
                 <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
+                  <input id="myusername" type="text" placeholder="用户名" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="密码" class="form-control">
+                  <input id="mypassword" type="password" placeholder="密码" class="form-control">
                 </div>
                 <p class="text-center">
-                  <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> 登录</button>
+                  <button class="btn btn-template-outlined" onclick="login()"><i class="fa fa-sign-in"></i> 登录</button>
                 </p>
               </form>
               <p class="text-center text-muted">还没注册？</p>
@@ -169,10 +169,10 @@
                   <ul class="nav nav-pills flex-column text-sm">
                     <li class="nav-item"><a href="股票信息.jsp" class="nav-link active">基本信息</a></li>
                     <li class="nav-item"><a href="template-alerts.jsp" class="nav-link">股票行情</a></li>
-                    <li class="nav-item"><a href="template-buttons.jsp" class="nav-link">资金流向</a></li>
+                    
                     <li class="nav-item"><a href="template-content-boxes.jsp" class="nav-link">股东持股变动</a></li>
                     <li class="nav-item"><a href="template-blocks.jsp" class="nav-link">重大事项</a></li>
-                    <li class="nav-item"><a href="template-pagination.jsp" class="nav-link">财务信息</a></li>
+                   
                    
                   </ul>
                 </div>
@@ -183,7 +183,7 @@
               <div id="accordion" role="tablist" class="mb-5">
                 <div class="card">
                   <div id="headingOne" role="tab" class="card-header">
-                    <h5 class="mb-0"><a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">獐子岛集团股份有限公司</a></h5>
+                    <h5 class="mb-0"><a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">查询结果如下</a></h5>
                   </div>
                   <div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse show">
                     <div class="card-body">
@@ -232,7 +232,7 @@
                     </div>
                   </div>
                 </div>
-                <p class="read-more text-right"><a href="blog-post.jsp" class="btn btn-template-outlined">订阅本股资讯</a></p>
+               
 
                 
              
@@ -349,7 +349,43 @@
 	       }
 	     }
 	   });
- 
+	 function login(){
+ 		var myusername = $("#myusername").val();
+ 		var mypassword = $("#mypassword").val();
+ 		
+ 		 if(myusername == "")
+ 			   {
+ 			   alert("请填写用户名！");
+ 			   }
+ 		   else if(mypassword == "")
+ 			  {
+ 			 	alert("请填写密码！");
+ 			  }
+ 		   else {
+ 		$.ajax({
+ 			url:"login",   
+ 			type:"post",
+ 			data:{
+ 	    		   Name: myusername,
+ 	    		   Password:mypassword,
+ 	    		},
+ 	    	async:false,
+ 			success:function(data){
+ 				if(data != ""){
+ 					alert("登录成功");
+ 					window.location.href="首页.jsp";
+ 				}else{
+ 					alert("登录失败");
+ 				}
+ 			},
+ 			error:function(XMLHttpRequest, textStatus, errorThrown) {
+ 				alert("系统错误");
+ 			}
+ 		});  
+ 	   		   
+ 	   	   }
+ 		
+ 	}
  </script>
   </body>
 </html>

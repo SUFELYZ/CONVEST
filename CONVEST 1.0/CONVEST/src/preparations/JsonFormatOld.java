@@ -193,8 +193,8 @@ public class JsonFormatOld {
     }
 
     public static void main(String... args){
-    	String keyword="平安银行";
-        String cypher = "match p=(:股票{StockName:\""+keyword+"\"})-[*..1]-() return p";
+    	String keyword="申万宏源";
+        String cypher = "match p=(:股票{StockName:\""+keyword+"\"})-[*..2]-() return p";
 
         StringBuffer relationBuffer = executeFindRelationCypher(cypher);
         StringBuffer relationNodesBuffer = executeFindRelationNodesCypher(cypher);

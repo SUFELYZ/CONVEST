@@ -482,7 +482,7 @@
             	 
              
              }, error: function (data) {
-           	     alert("处理异常");
+           	     alert("来都来了，先注册一个吧！");
            	     console.log(data);
          }
      });

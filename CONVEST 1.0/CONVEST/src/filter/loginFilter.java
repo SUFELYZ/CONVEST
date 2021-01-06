@@ -13,8 +13,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-
 public class loginFilter {
 	
 	public void destroy() {
@@ -46,7 +44,7 @@ public class loginFilter {
 			if(null != session.getAttribute("id")) {//已登录
 				chain.doFilter(request, response);
 			} else {//未登录
-				res.setHeader("refresh", "1; url=" + ctxPath + "/user/login.jsp");
+				res.setHeader("refresh", "1; url=" + ctxPath + "/个人中心.jsp");
 				return;
 			}
 	}

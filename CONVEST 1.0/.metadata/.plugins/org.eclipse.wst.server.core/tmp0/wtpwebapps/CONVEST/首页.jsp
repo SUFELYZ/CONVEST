@@ -69,15 +69,15 @@
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form action="个人中心.jsp" method="get">
+               <form action="个人中心.jsp" method="get">
                 <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
+                  <input id="myusername" type="text" placeholder="用户名" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="密码" class="form-control">
+                  <input id="mypassword" type="password" placeholder="密码" class="form-control">
                 </div>
                 <p class="text-center">
-                  <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> 登录</button>
+                  <button class="btn btn-template-outlined" onclick="login()"><i class="fa fa-sign-in"></i> 登录</button>
                 </p>
               </form>
               <p class="text-center text-muted">还没注册？</p>
@@ -137,7 +137,7 @@
             <div class="row mb-small">
               <div class="col-md-12 text-center">
                 <h1 class="text-uppercase">通过数字科技赋能投资升级</h1>
-                <h2 class="text-uppercase">基于另类大数据，CONVEST帮助投资者获取有效的数据、信息、知识，辅助投资者做出正确的决策，
+                <h2 class="text-uppercase">基于另类大数据，CONVEST帮助投资者获取有效的数据、信息、知识，辅助投资者做出正确的决策
                 </h2>
               </div>
             </div>
@@ -157,9 +157,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <h2 class="text-uppercase">订阅服务</h2>
+              <h2 class="text-uppercase">资讯跟踪</h2>
               <p class="lead mb-small">投资资讯实时跟踪</p>
-              <p class="mb-small">支持模块化订阅，满足客户个性化定制需求，为客户提供准确、及时、完整的落地数据，内容涵盖融资、团队、舆情、竞品、情报等公司发展数据，和基金、工商、股票、研报等各类金融市场数据。</p>
+              <p class="mb-small">满足客户个性化定制需求，为客户提供准确、及时、完整的落地数据，内容涵盖融资、团队、舆情、竞品、情报等公司发展数据，和基金、工商、股票、研报等各类金融市场数据。</p>
     
             </div>
             <div class="col-md-6 text-center"><img src="img/template-easy-customize2.png" alt="" class="img-fluid"></div>
@@ -183,8 +183,8 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <h2 class="text-uppercase">财报可视化系统</h2>
-              <p class="mb-small">利用可视化工具，将上市公司财务报表数据进行直观清晰的可视化呈现，并基于经典财务模型帮助投资者在最大程度上节省时间，辅助做出最为明智的投资决策。</p>
+              <h2 class="text-uppercase">可视化系统</h2>
+              <p class="mb-small">将高管网络数据进行直观清晰的可视化呈现，并基于经典财务模型帮助投资者在最大程度上节省时间，辅助做出最为明智的投资决策。</p>
               
             </div>
             <div class="col-md-6 text-center"><img src="img/template-easy-code.png" alt="" class="img-fluid"></div>
@@ -250,5 +250,44 @@
     <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script src="vendor/jquery.scrollto/jquery.scrollTo.min.js"></script>
     <script src="js/front.js"></script>
+    <script type="text/javascript">
+    function login(){
+		var myusername = $("#myusername").val();
+		var mypassword = $("#mypassword").val();
+		
+		 if(myusername == "")
+			   {
+			   alert("请填写用户名！");
+			   }
+		   else if(mypassword == "")
+			  {
+			 	alert("请填写密码！");
+			  }
+		   else {
+		$.ajax({
+			url:"login",   
+			type:"post",
+			data:{
+	    		   Name: myusername,
+	    		   Password:mypassword,
+	    		},
+	    	async:false,
+			success:function(data){
+				if(data != ""){
+					alert("登录成功");
+					window.location.href="首页.jsp";
+				}else{
+					alert("登录失败");
+				}
+			},
+			error:function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("系统错误");
+			}
+		});  
+	   		   
+	   	   }
+		
+	}
+    </script>
 </body>
 </html>
